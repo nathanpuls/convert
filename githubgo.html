@@ -96,15 +96,19 @@ function displayData() {
         /* This is your input, but you shoud use another Id for your fields. */
         
         var textValue = document.getElementById('input').value;
+        
+
         var path = textValue.split('/');
         var user = path[3];
         var repo = path[4];
-        var file = path[7];
-        var baseUrl = 'https://nathanpuls.github.io/';
-        var http = 'https://'
-        var domain = '.github.io/'
-        var input2 = http + user + domain + repo + '/' + file;
-        window.location = input2;
+      var rest = path.slice(7);
+      //var rest2 = rest.replace(',','/');
+        
+      var http = 'https://'
+         var domain = '.github.io/'
+        var input2 = http + user + domain + repo + '/' + rest;
+        var input3 = input2.replaceAll(',','/');
+        window.location = input3;
   
   
   
@@ -117,9 +121,9 @@ function displayData() {
   */
         
       
-        /* Change the inner HTML of your div. */
-        div_display.innerHTML = input2;
-      }
+        /* Change the inner HTML of your div. 
+        div_display.innerHTML = input3;
+      } */
 
       </script>
 </body>
