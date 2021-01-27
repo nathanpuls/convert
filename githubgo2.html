@@ -59,11 +59,11 @@
           <script>
         function validateForm() {
           var vstring = document.getElementById('input').value;
-          var vboolean = vstring.includes("github.com");
+          var vboolean = vstring.includes("github.io");
           if (vboolean === false) {
             console.log(vboolean);
             console.log(vstring);
-          var msg1 ="URL must include 'Github.com'";
+          var msg1 ="URL must include 'Github.io'";
           document.getElementById("msg1-div").innerHTML = msg1;
           console.log(vstring);
           console.log(vboolean);
