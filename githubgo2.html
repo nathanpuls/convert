@@ -60,7 +60,7 @@
           
           <script>
           document.onkeyup = function(e) {
-  if (e.which == 83) {
+  if (e.ctrlKey && e.which == 83) {
     document.getElementById("switchSubmit").click();
   }
     };
