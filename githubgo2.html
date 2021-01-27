@@ -56,7 +56,13 @@
       <input type="submit" id='btnSubmit' value="Go" onclick="displayData();" />
           
           <br><br>
-          <a class="button button-primary" href="http://fwdng.com/ghcom">SWITCH</a>
+          <button class="button button-primary" id='switchSubmit' onclick="location.href = 'http://fwdng.com/go';">SWITCH</button>
+          
+          document.onkeyup = function(e) {
+  if (e.which == 83) {
+    document.getElementById("switchSubmit").click();
+  }
+    };
         
  
 <!--           <div id="display-bg">
