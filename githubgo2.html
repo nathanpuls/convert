@@ -1,0 +1,158 @@
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Github Go - Reverse</title>
+  <meta name="description" content="">
+  <meta name="author" content="Nathan Puls">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://nathanpuls.github.io/fwdng/css/skeleton.css">
+
+  <link rel="stylesheet" href="https://nathanpuls.github.io/fwdng/css/normalize.css">
+  
+  
+<style>
+  
+  #display-bg {
+    background-color: black;
+    font-size: 14px;
+    color: black;
+    padding: 0px;
+}
+
+ #display {
+    background-color: transparent;
+    font-size: 14px;
+    color: white;
+    padding: 10px;
+    margin: 0px;
+    text-align: center;
+}
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="ten-columns" style="margin-top: 15%">
+<h5>
+        <a href='http://fwdng.com/go'>
+  fwdng.com/go2
+        </a>
+        </h5>    
+        
+        <h1>
+        Forward to Gituhub repo file links from Github.io (Github Pages)
+</h1>
+        <div><input id="input" type="text" name="input" onfocus="this.value=''" value="" placeholder="Paste Github.io URL" autofocus/>
+      <input type="submit" id='btnSubmit' value="Forward to Github Repo File" onclick="displayData();" />
+        
+ 
+<!--           <div id="display-bg">
+          <div id="display"></div>
+      </div>   -->
+          
+        
+        
+        
+        
+        
+        
+        
+   
+      </div>
+    </div>
+  
+
+
+
+
+  <script src="js/scripts.js"></script>
+  <script>
+    var inputEnter = document.getElementById("input");
+        inputEnter.addEventListener("keyup", function(event) {
+          if (event.keyCode === 13) {
+           event.preventDefault();
+           document.getElementById("btnSubmit").click();
+          }
+        });
+
+function dblClear() {
+        document.getElementById('input').value = '';
+        removeDisplayData();
+    }
+
+function removeDisplayData() {
+          display.innerHTML = '';
+      }
+
+function copyUrl() {
+  var copyText = input2;
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+  alert("Copied the text: " + copyText.value);
+}
+
+function displayData() {
+    
+          var div_display = document.getElementById('display');
+        /* This is your input, but you shoud use another Id for your fields. */
+        
+        var textValue = document.getElementById('input').value;
+        
+
+        var path = textValue.split('/');
+        
+            
+    var user = textValue.substring(
+    textValue.lastIndexOf(":") + 3, 
+    textValue.lastIndexOf(".github") 
+    
+);
+            
+      var user2 = textValue.substring(
+    textValue.lastIndexOf("/") + 1, 
+    textValue.lastIndexOf("l")
+); 
+          
+        var repo = path[3];
+      var rest = path.slice(4);
+      //var rest2 = rest.replace(',','/');
+        
+      var http = 'https://'
+         var domain = 'github.com/'
+        var input2 = http + domain + user + '/' + repo + '/blob/main/'+ rest;
+        var input3 = input2.replaceAll(',','/');
+        window.location = input3;
+        
+  
+  
+  
+  /*
+  
+  START
+  https://nathanpuls.github.io/wyres/audioplayer.html
+  
+  END 
+  https://github.com/nathanpuls/wyres/blob/main/audioplayer.html
+  
+  https://github.com/nathanpuls/wyres/blob/main/audioplayer.html
+  
+  https://nathanpuls.github.io/repo/file
+  
+  */
+        
+      
+        /* Change the inner HTML of your div. 
+        div_display.innerHTML = input3;*/
+      } 
+
+      </script>
+</body>
+</html>
