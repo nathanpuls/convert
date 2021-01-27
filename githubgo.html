@@ -1,4 +1,5 @@
 
+
 <!doctype html>
 
 <html lang="en">
@@ -18,6 +19,7 @@
 <style>
   :root {
     --blue: #1EAEDB;
+    --crimson: #960e29;
   }
   
   #display-bg {
@@ -43,20 +45,43 @@
   <div class="container">
     <div class="row">
       <div class="ten-columns" style="margin-top: 15%">
-<h5>
+<h6>
         <a href='http://fwdng.com/go'>
   fwdng.com/go
         </a>
-        </h5>    
+        </h6>    
         
         <h1>
          <span style=color:var(--blue)>Github.com ></span> Github.io
 </h1>
         <div><input class="two-thirds column" id="input" type="text" name="input" onfocus="this.value=''" value="" placeholder="" autofocus/>
-      <input type="submit" id='btnSubmit' value="Go" onclick="displayData();" />
+      <input type="submit" class="button button-primary" id='btnSubmit' value="GO" onclick="validateForm();" />
+      
+
+      <script>
+        function validateForm() {
+          var vstring = document.getElementById('input').value;
+          var vboolean = vstring.includes("github.com");
+          if (vboolean === false) {
+            console.log(vboolean);
+            console.log(vstring);
+          var msg1 ="URL must include 'Github.com'";
+          document.getElementById("msg1-div").innerHTML = msg1;
+          console.log(vstring);
+          console.log(vboolean);
+          }
+          else {
+              displayData();
+          }
+        }
+        
+        </script>
           
           <br><br>
           <button class="button button-primary" id='switchSubmit' onclick="location.href = 'http://fwdng.com/ghio';">SWITCH</button>
+
+          <span id="msg1-div" style="color: var(--crimson);"></span>
+          
           
           <script>
           document.onkeyup = function(e) {
